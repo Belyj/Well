@@ -1,0 +1,4 @@
+<Engine>
+    <!-- THIS GUY -->
+    <Realm className="org.apache.catalina.realm.MemoryRealm"/>
+</Engine>
