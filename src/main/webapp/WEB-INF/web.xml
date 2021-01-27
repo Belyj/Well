@@ -9,11 +9,11 @@
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>indexs</servlet-name>
+        <servlet-name>index</servlet-name>
         <servlet-class>IndexServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>indexs</servlet-name>
+        <servlet-name>index</servlet-name>
         <url-pattern></url-pattern>
     </servlet-mapping>
 </web-app>
