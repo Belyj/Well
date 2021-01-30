@@ -1,6 +1,6 @@
 #!Groovy
 // hello into console
-properties([disableconcurrentbuilds()])
+properties([disableConcurrentBuilds()])
 
 pipeline {
     agent {
