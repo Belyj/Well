@@ -15,4 +15,6 @@ docker run -p 8080:8080 welcomer:latest
 Перейти по УРЛ
 http://localhost:8080/wellcomer/
 
+Если будет запрошен пользователь - ввести
+
 Enjoy!
