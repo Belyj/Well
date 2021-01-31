@@ -11,11 +11,17 @@ pipeline {
         timestamps()
     }
     stages {
-        stage('Initialize') {
+        stage("Initialize") {
             steps {
-                def dockerHome = tool '/Users/User/.docker'
-                def mavenHome  = tool '/Users/User/.m2'
-                env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
+                step {
+                    def dockerHome = tool '/Users/User/.docker'
+                }
+                step {
+                    def mavenHome  = tool '/Users/User/.m2'
+                }
+                step {
+                    env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
+                }
             }
         }
 
