@@ -4,13 +4,21 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent {
-            docker { image 'tomcat:9.0-jre8' }
-        }
+        label 'master'
+    }
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
     }
     stages {
+        stage("Init") {
+            sh 'apt update'
+            sh 'apt install apt-transport-https ca-certificates curl software-properties-common'
+            sh 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -'
+            sh 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"'
+            sh 'sudo apt update'
+            sh 'apt-cache policy docker-ce'
+        }
         stage("First Step") {
             steps {
                 sh 'echo \'hello world\''
