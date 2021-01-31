@@ -13,13 +13,7 @@ pipeline {
     stages {
         stage("Init") {
             steps {
-                sh 'apt update'
-                sh 'apt install openjdk-8-jdk openjdk-8-jre'
-                sh 'apt install apt-transport-https ca-certificates curl software-properties-common'
-                sh 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -'
-                sh 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"'
-                sh 'sudo apt update'
-                sh 'apt-cache policy docker-ce'
+                sh 'brew install docker'
             }
         }
         stage("First Step") {
