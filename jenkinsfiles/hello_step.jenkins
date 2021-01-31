@@ -11,20 +11,6 @@ pipeline {
         timestamps()
     }
     stages {
-        stage("Initialize") {
-            steps {
-                step {
-                    def dockerHome = tool '/Users/User/.docker'
-                }
-                step {
-                    def mavenHome  = tool '/Users/User/.m2'
-                }
-                step {
-                    env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
-                }
-            }
-        }
-
         stage("First Step") {
             steps {
                 sh 'echo \'hello world\''
