@@ -11,17 +11,17 @@ pipeline {
         timestamps()
     }
     stages {
-        stage("Init") {
-            steps {
-                sh '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"'
-                sh 'brew install docker'
-            }
-        }
+        //stage("Init") {
+        //    steps {
+        //        sh '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"'
+        //        sh 'brew install docker'
+        //    }
+        //}
         stage("First Step") {
             steps {
                 sh 'echo \'hello world\''
-                sh 'docker build -t welcomer .'
-                sh 'docker run -p 8080:8080 welcomer:latest'
+                //sh 'docker build -t welcomer .'
+                //sh 'docker run -p 8080:8080 welcomer:latest'
             }
         }
     }
