@@ -18,9 +18,9 @@ pipeline {
         //        sh 'brew install docker'
         //    }
         //}
-        stage("First Step") {
+        stage("docker-build") {
             steps {
-                sh 'echo \'hello world\''
+                sh 'echo \'===START_DOCKER_BUILD===\''
                 sh 'docker build -t welcomer .'
                 //sh 'docker run -p 8080:8080 welcomer:latest'
             }
