@@ -20,7 +20,7 @@ pipeline {
         stage("First Step") {
             steps {
                 sh 'echo \'hello world\''
-                //sh 'docker build -t welcomer .'
+                sh 'docker build -t welcomer .'
                 //sh 'docker run -p 8080:8080 welcomer:latest'
             }
         }
