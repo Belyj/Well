@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh 'echo \'===START_DOCKER_BUILD===\''
                 sh 'docker build -t welcomer .'
-                //sh 'docker run -p 8080:8080 welcomer:latest'
+                sh 'docker run -p 8080:8080 welcomer:latest'
             }
         }
     }
