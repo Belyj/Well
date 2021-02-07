@@ -1,5 +1,4 @@
 #!Groovy
-// hello into console
 properties([disableConcurrentBuilds()])
 
 pipeline {
@@ -12,17 +11,19 @@ pipeline {
         timestamps()
     }
     stages {
-        //stage("Init") {
-        //    steps {
-        //        sh '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"'
-        //        sh 'brew install docker'
-        //    }
-        //}
+        stage("docker-stop") {
+            steps {
+                sh 'docker stop welcomer || true && docker rm welcomer || true'
+            }
+        }
         stage("docker-build") {
             steps {
-                sh 'echo \'===START_DOCKER_BUILD===\''
                 sh 'docker build -t welcomer .'
-                sh 'docker run -p 8080:8080 welcomer:latest'
+            }
+        }
+        stage("docker-deploy") {
+            steps {
+               sh 'docker run --name=welcomer -d -p 8081:8080 welcomer:latest'
             }
         }
     }
